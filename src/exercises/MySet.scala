@@ -13,6 +13,17 @@ trait MySet[A] extends (A => Boolean) {
   def flatMap[B](f: A => MySet[B]): MySet[B]
   def filter(predicate: A => Boolean): MySet[A]
   def foreach(f: A => Unit): Unit
+
+  /*
+    - removing an element
+    - intersection with another list
+    - difference with another set
+   */
+  def -(elem: A): MySet[A] // remove
+  def &(anotherSet: MySet[A]): MySet[A] // intersection
+  def --(anotherSet: MySet[A]): MySet[A] // difference
+
+  def unary_! : MySet[A]
 }
 
 class EmptySet[A] extends MySet[A] {
@@ -24,6 +35,34 @@ class EmptySet[A] extends MySet[A] {
   override def flatMap[B](f: A => MySet[B]): MySet[B] = new EmptySet[B]
   override def filter(predicate: A => Boolean): MySet[A] = this
   override def foreach(f: A => Unit): Unit = ()
+
+  override def -(elem: A): MySet[A] = this
+  override def &(anotherSet: MySet[A]): MySet[A] = this
+  override def --(anotherSet: MySet[A]): MySet[A] = this
+
+  override def unary_! : MySet[A] = new PropertyBasedSet[A](_ => true)
+}
+
+class PropertyBasedSet[A](property: A => Boolean) extends MySet[A] {
+  override def contains(elem: A): Boolean = property(elem)
+  override def +(elem: A): MySet[A] = {
+    new PropertyBasedSet[A](x => property(x) || x == elem)
+  }
+  override def ++(anotherSet: MySet[A]): MySet[A] = {
+    new PropertyBasedSet[A](x => property(x) || anotherSet(x))
+  }
+  override def map[B](f: A => B): MySet[B] = politelyFail
+  override def flatMap[B](f: A => MySet[B]): MySet[B] = politelyFail
+  override def foreach(f: A => Unit): Unit = politelyFail
+
+  override def filter(predicate: A => Boolean): MySet[A] = new PropertyBasedSet[A](x => property(x) && predicate(x))
+  override def -(elem: A): MySet[A] = filter(x => x != elem)
+  override def &(anotherSet: MySet[A]): MySet[A] = filter(anotherSet)
+
+  override def --(anotherSet: MySet[A]): MySet[A] = filter(!anotherSet)
+  override def unary_! : MySet[A] = new PropertyBasedSet[A](x => !property(x))
+
+  def politelyFail = throw new IllegalArgumentException("Really deep rabbit hole!")
 }
 
 class NonEmptySet[A] (head: A, tail: MySet[A]) extends MySet[A] {
@@ -60,6 +99,18 @@ class NonEmptySet[A] (head: A, tail: MySet[A]) extends MySet[A] {
     f(head)
     tail foreach f
   }
+
+  override def -(elem: A): MySet[A] = {
+    if (elem == head) tail
+    //else new NonEmptySet[A](head, tail - elem)
+    else tail - elem + head
+  }
+
+  override def &(anotherSet: MySet[A]): MySet[A] = filter(anotherSet) // intersection = filtering!
+
+  override def --(anotherSet: MySet[A]): MySet[A] = filter(!anotherSet)
+
+  def unary_! : MySet[A] = new PropertyBasedSet[A](x => !this.contains(x))
 }
 
 object MySet {
@@ -76,17 +127,35 @@ object MySet {
 
 object MySetPlayground extends App {
   val s = MySet(1,2,3,4)
-  s foreach println
-  println("+")
-  s + 5 foreach println
-  println("++")
-  s + 5 ++ MySet(-1, -2) foreach println
-  println("+ existed")
-  s + 5 ++ MySet(-1, -2) + 3 foreach println
-  println("map")
-  s + 5 ++ MySet(-1, -2) + 3 map (x => x * 10) foreach println
-  println("flatMap")
-  s + 5 ++ MySet(-1, -2) + 3 flatMap (x => MySet(x, x * 10)) foreach println
-  println("filter")
-  s + 5 ++ MySet(-1, -2) + 3 flatMap (x => MySet(x, x * 10)) filter (_ % 2 == 0) foreach println
+  s foreach(x => print(s"$x "))
+  println("\n+")
+  s + 5 foreach(x => print(s"$x "))
+  println("\n++")
+  s + 5 ++ MySet(-1, -2) foreach(x => print(s"$x "))
+  println("\n+ existed")
+  s + 5 ++ MySet(-1, -2) + 3 foreach(x => print(s"$x "))
+  println("\nmap")
+  s + 5 ++ MySet(-1, -2) + 3 map (x => x * 10) foreach(x => print(s"$x "))
+  println("\nflatMap")
+  s + 5 ++ MySet(-1, -2) + 3 flatMap (x => MySet(x, x * 10)) foreach(x => print(s"$x "))
+  println("\nfilter")
+  s + 5 ++ MySet(-1, -2) + 3 flatMap (x => MySet(x, x * 10)) filter (_ % 2 == 0) foreach(x => print(s"$x "))
+  println("\n")
+
+  val negative = !s // s.unary_! = all the naturals not equal to 1,2,3,4
+  println(negative(2))
+  println(negative(5))
+
+  val negativeEven = negative.filter(_ % 2 == 0)
+  println(negativeEven(5))
+
+  val negativeEven5 = negativeEven + 5
+  println(negativeEven5(5))
+
+  println("\n--")
+  (MySet(1,2,3,4,5) -- MySet(2,4)) foreach(x => print(s"$x "))
+  println("\n&")
+  (MySet(1,2,3,4,5) & MySet(2,4)) foreach(x => print(s"$x "))
+  println("\n-")
+  (MySet(1,2,3,4,5) - 2) foreach(x => print(s"$x "))
 }
