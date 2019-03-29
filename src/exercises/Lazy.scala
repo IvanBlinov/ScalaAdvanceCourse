@@ -45,10 +45,11 @@ object LazyApp extends App {
    */
 }
 
-class Monad[A] {
-  def flatMap[B](f: A => Monad[B]): Monad[B] = ???
+class Monad[A](value: => A) {
+  def unit(value: => A): Monad[A] = new Monad[A](value)
+  def flatMap[B](f: A => Monad[B]): Monad[B] = f(value)
 
-  def map[B](f: A => B): Monad[B] = ??? //flatMap(x => new Monad[B](f(x)))
+  def map[B](f: A => B): Monad[B] = flatMap(x => new Monad[B](f(x)))
   def flatten(m: Monad[Monad[A]]): Monad[A] = m.flatMap((x: Monad[A]) => x)
 
   /*
