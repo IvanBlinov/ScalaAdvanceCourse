@@ -9,7 +9,7 @@ abstract class MyStream[+A] {
   def tail: MyStream[A]
 
   def #::[B >: A](element: B): MyStream[B]
-  def ++[B >: A](anotherStream: MyStream[B]): MyStream[B]
+  def ++[B >: A](anotherStream: => MyStream[B]): MyStream[B]
 
   def foreach(f: A => Unit): Unit
   def map[B](f: A => B): MyStream[B]
@@ -31,7 +31,7 @@ object EmptyStream extends MyStream[Nothing] {
   override def head: Nothing = throw new NoSuchElementException
   override def tail: MyStream[Nothing] = throw new NoSuchElementException
   override def #::[B >: Nothing](element: B): MyStream[B] = new Cons[B](element, this)
-  override def ++[B >: Nothing](anotherStream: MyStream[B]): MyStream[B] = anotherStream
+  override def ++[B >: Nothing](anotherStream: => MyStream[B]): MyStream[B] = anotherStream
   override def foreach(f: Nothing => Unit): Unit = ()
   override def map[B](f: Nothing => B): MyStream[B] = this
   override def flatMap[B](f: Nothing => MyStream[B]): MyStream[B] = this
@@ -48,7 +48,7 @@ class Cons[+A](hd: A, tl: => MyStream[A]) extends MyStream[A] {
 
   override def #::[B >: A](element: B): MyStream[B] = new Cons[B](element, this)
 
-  override def ++[B >: A](anotherStream: MyStream[B]): MyStream[B] = new Cons[B](head, tail ++ anotherStream)
+  override def ++[B >: A](anotherStream: => MyStream[B]): MyStream[B] = new Cons[B](head, tail ++ anotherStream)
 
   override def foreach(f: A => Unit): Unit = {
     f(head)
@@ -87,5 +87,27 @@ object StreamsPlayground extends App {
 
   //map, flatMap
   println(startFrom0.map(_ * 2).take(1000).toList())
-  println(startFrom0.flatMap(x => new Cons(x, new Cons(x + 1, EmptyStream))).take(100))
+  println(startFrom0.flatMap(x => new Cons(x, new Cons(x + 1, EmptyStream))).take(100).toList())
+  println(startFrom0.filter(_ < 10).take(10).toList())
+
+  // 1 - stream of Fibonacci numbers
+  // 2 - stream of prime numbers with Eratosthenes' sieve
+  /*
+    [2 3 ....]
+    filter out all numbers divisible by 2
+
+   */
+
+  def fibonacci(first: BigInt, second: BigInt): MyStream[BigInt] = {
+    new Cons(first, fibonacci(second, first + second))
+  }
+
+  println(fibonacci(1,1).take(100).toList())
+
+  def eratosthenes(numbers: MyStream[Int]): MyStream[Int] = {
+    if (numbers.isEmpty) numbers
+    else new Cons(numbers.head, eratosthenes(numbers.tail.filter(_ % numbers.head != 0)))
+  }
+
+  println(eratosthenes(MyStream.from(2)(_ + 1)).take(100).toList())
 }
