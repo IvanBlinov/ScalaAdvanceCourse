@@ -128,5 +128,64 @@ object ThreadCommunication extends App {
     producerThread.start()
   }
 
-  prodConsLargeBuffer()
+  //prodConsLargeBuffer()
+
+  class ConsumerThread(id: Int, buffer: mutable.Queue[Int]) extends Thread {
+    val random = new Random()
+
+    override def run(): Unit = {
+      val random = new Random()
+
+      while(true) {
+        buffer.synchronized {
+          while (buffer.isEmpty) {
+            println(s"[consumer $id] buffer is empty, waiting...")
+            buffer.wait()
+          }
+
+          val x = buffer.dequeue()
+          println(s"[consumer $id] consumed " + x)
+
+          buffer.notify()
+        }
+        Thread.sleep(random.nextInt(500))
+      }
+    }
+  }
+
+  class ProducerThread(id: Int, buffer: mutable.Queue[Int], capacity: Int) extends Thread {
+    val random = new Random()
+
+    override def run(): Unit = {
+      val random = new Random()
+      var i = 0
+
+      while (true) {
+        buffer.synchronized({
+          while (buffer.size == capacity) {
+            println(s"[producer $id] buffer is full, waiting...")
+            buffer.wait()
+          }
+
+          println(s"[producer $id] producing " + i)
+          buffer.enqueue(i)
+
+          buffer.notify()
+          i += 1
+        })
+
+        Thread.sleep(random.nextInt(500))
+      }
+    }
+  }
+
+  def prodConsMultipleBuffer(nCt: Int, nPt: Int): Unit = {
+
+    val buffer: mutable.Queue[Int] = new mutable.Queue[Int]
+    val capacity = 10
+    (1 to nCt).foreach(i => new ConsumerThread(i, buffer).start())
+    (1 to nPt).foreach(i => new ProducerThread(i, buffer, capacity).start())
+  }
+
+  prodConsMultipleBuffer(4,4)
 }
