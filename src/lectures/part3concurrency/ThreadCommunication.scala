@@ -187,5 +187,94 @@ object ThreadCommunication extends App {
     (1 to nPt).foreach(i => new ProducerThread(i, buffer, capacity).start())
   }
 
-  prodConsMultipleBuffer(4,4)
+  //prodConsMultipleBuffer(4,4)
+
+  def testNotifyAll(): Unit = {
+    val bell = new Object
+
+    (1 to 10).foreach(i => new Thread(() => {
+      bell.synchronized({
+        println(s"[thread $i] waiting...")
+        bell.wait()
+        println(s"[thread $i] hooray!!!")
+      })
+    }).start())
+
+    new Thread(() => {
+      Thread.sleep(2000)
+      println("[announcer] Rock'n roll")
+      bell.synchronized({
+        bell.notifyAll()
+      })
+    }).start()
+  }
+
+  //testNotifyAll()
+
+  val a1, a2: Object = new Object
+  val t1 = new Thread(() => {
+    a1.synchronized{
+      println("Synchronized by a1")
+      Thread.sleep(200)
+      a2.synchronized{
+        Thread.sleep(200)
+        println("Synchronized by a2")
+      }
+    }
+  })
+
+  val t2 = new Thread(() => {
+    a2.synchronized{
+      println("Synchronized by a2")
+      Thread.sleep(200)
+      a1.synchronized{
+        Thread.sleep(200)
+        println("Synchronized by a1")
+      }
+    }
+  })
+
+  //t1.start()
+  //t2.start()
+
+  case class Friend(name: String) {
+    def bow(other: Friend) = {
+      this.synchronized{
+        println(s"$this: I am bowing to my friend $other")
+        other.rise(this)
+        println(s"$this: my friend $other has risen")
+      }
+    }
+
+    def rise(other: Friend) = {
+      this.synchronized{
+        println(s"$this: I am rising to my friend $other")
+      }
+    }
+
+    var side = "right"
+
+    def switchSide(): Unit = {
+      if (side == "right") side = "left"
+      else side = "right"
+    }
+
+    def pass(other: Friend): Unit = {
+      while(this.side == other.side) {
+        println(s"$this: Oh, but please $other, feel free to pass... ")
+        switchSide()
+        Thread.sleep(1000)
+      }
+    }
+  }
+
+  val sam = new Friend("Sam")
+  val pierre = new Friend("Pierre")
+
+  //new Thread(() => sam.bow(pierre)).start()
+  //new Thread(() => pierre.bow(sam)).start()
+
+  //3 - livelock
+  new Thread(() => sam.pass(pierre)).start()
+  new Thread(() => pierre.pass(sam)).start()
 }
