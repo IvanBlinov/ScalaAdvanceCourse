@@ -3,7 +3,7 @@ package lectures.part3concurrency
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration._
 import scala.concurrent.{Await, Future, Promise}
-import scala.util.{Failure, Random, Success}
+import scala.util.{Failure, Random, Success, Try}
 
 object Futures extends App {
 
@@ -141,4 +141,63 @@ object Futures extends App {
 
   producer.start()
   Thread.sleep(1000)
+
+  def fulfillFutureImmediately[T](value: T): Future[T] = {
+    Future(value)
+  }
+  val immediatelyFuture :Future[Int] = Future{3}
+
+  def inSequence[A,B](fa: Future[A], fb: Future[B]): Future[B] = {
+    fa.flatMap(_ => fb)
+  }
+
+  def first[A](fa: Future[A], fb: Future[A]): Future[A] = {
+    val promise = Promise[A]
+    fa.onComplete(promise.tryComplete)
+    fb.onComplete(promise.tryComplete)
+    promise.future
+  }
+
+  def last[A](fa: Future[A], fb: Future[A]): Future[A] = {
+    val bothPromise = Promise[A]
+    val lastPromise = Promise[A]
+    val checkAndComplete = (result: Try[A]) =>
+      if (!bothPromise.tryComplete(result))
+        lastPromise.tryComplete(result)
+    fa.onComplete(checkAndComplete)
+    fb.onComplete(checkAndComplete)
+    lastPromise.future
+  }
+
+  val fast = Future {
+    Thread.sleep(100)
+    42
+  }
+
+  val slow = Future {
+    Thread.sleep(200)
+    45
+  }
+  first(fast,slow).foreach(println)
+  last(fast,slow).foreach(println)
+
+  Thread.sleep(1000)
+
+  def retryUntil[A](action: () => Future[A], condition: A => Boolean): Future[A] = {
+    action()
+      .filter(condition)
+      .recoverWith {
+        case _ => retryUntil(action, condition)
+      }
+  }
+
+  val random = new Random()
+  val action = () => Future {
+    Thread.sleep(100)
+    val nextValue = random.nextInt(100)
+    println(s"generated $nextValue")
+    nextValue
+  }
+  retryUntil(action, (x: Int) => x < 10).foreach(result => println("settled at " + result))
+  Thread.sleep(10000)
 }
