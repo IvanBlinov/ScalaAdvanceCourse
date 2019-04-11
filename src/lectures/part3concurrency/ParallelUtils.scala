@@ -3,8 +3,8 @@ package lectures.part3concurrency
 import java.util.concurrent.ForkJoinPool
 import java.util.concurrent.atomic.AtomicReference
 
+import scala.collection.parallel.ForkJoinTaskSupport
 import scala.collection.parallel.immutable.ParVector
-import scala.collection.parallel.{ForkJoinTaskSupport, Task, TaskSupport}
 
 object ParallelUtils extends App {
 
@@ -51,12 +51,12 @@ object ParallelUtils extends App {
     ExecutionContextTaskSupport(EC)
    */
 
-  parVector.tasksupport = new TaskSupport {
+  /*parVector.tasksupport = new TaskSupport {
     override val environment: AnyRef = _
     override def execute[R, Tp](fjtask: Task[R, Tp]): () => R = ???
     override def executeAndWaitResult[R, Tp](task: Task[R, Tp]): R = ???
     override def parallelismLevel: Int = ???
-  }
+  }*/
 
   // 2 - atomic ops and references
   val atomic = new AtomicReference[Int](2)
