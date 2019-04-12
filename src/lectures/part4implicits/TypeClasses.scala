@@ -33,7 +33,7 @@ object TypeClasses extends App {
     def serialize(value: T): String
   }
 
-  object UserSerializer extends HTMLSerializer[User] {
+  implicit object UserSerializer extends HTMLSerializer[User] {
     override def serialize(user: User): String = s"<div>${user.name} (${user.age} yo) <a href=${user.email}/> </div>"
   }
 
@@ -55,6 +55,10 @@ object TypeClasses extends App {
     def action(value: T): String
   }
 
+  object MyTypeClassTemplate {
+    def apply[T](implicit instance: MyTypeClassTemplate[T]) = instance
+  }
+
   /**
     * Equal type class
     */
@@ -62,10 +66,18 @@ object TypeClasses extends App {
     def equal(obj1: T, obj2: T): Boolean
   }
 
-  object LoggedUserEqual extends Equal[User] {
+  object Equal {
+    def apply[T] (implicit instance: Equal[T]) = instance
+  }
+
+  object EqualAnother {
+    def apply[T] (a: T, b: T)(implicit instance: Equal[T]) = instance.equal(a,b)
+  }
+
+  implicit object LoggedUserEqual extends Equal[User] {
     override def equal(user1: User, user2: User): Boolean = {
       user1.email == user2.email &&
-      user1.name == user2.email &&
+      user1.name == user2.name &&
       user1.age == user2.age
     }
   }
@@ -73,4 +85,27 @@ object TypeClasses extends App {
   object UnloggedUserEqual extends Equal[User] {
     override def equal(user1: User, user2: User): Boolean = user1.email.equals(user2.email)
   }
+
+  object HTMLSerializer {
+    def serialize[T](value: T)(implicit serializer: HTMLSerializer[T]): String = {
+      serializer.serialize(value)
+    }
+
+    def apply[T](implicit serializer: HTMLSerializer[T]) = serializer
+  }
+
+  implicit object IntSerializer extends HTMLSerializer[Int] {
+    override def serialize(value: Int): String = s"<div style: color=blue>$value</div>"
+  }
+
+  //println(HTMLSerializer.serialize(42)(IntSerializer))
+  println(HTMLSerializer.serialize(42))
+  println(HTMLSerializer.serialize(john))
+
+  //access to entire type class interface
+  println(HTMLSerializer[User].serialize(john))
+
+  println(Equal[User].equal(john, john))
+  println(EqualAnother(john, john))
+  //AD-HOC polymorphism
 }
