@@ -42,7 +42,7 @@ object MagnetPattern extends App {
     }
   }
 
-  implicit class FromP2PResponse(request: P2PResponse) extends MessageMagnet[Int] {
+  implicit class FromP2PResponse(response: P2PResponse) extends MessageMagnet[Int] {
     override def apply(): Int = {
       // logic for handling P2PResponse
       println("Handling P2P Response")
