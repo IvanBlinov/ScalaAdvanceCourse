@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="218c3417-41ca-4edb-912f-69d3ba643224" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/rock-the-jvm-scala-advanced/playground/ScalaPlayground$.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rock-the-jvm-scala-advanced/playground/ScalaPlayground$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/rock-the-jvm-scala-advanced/playground/ScalaPlayground.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rock-the-jvm-scala-advanced/playground/ScalaPlayground.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,41 +16,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Lazy.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/exercises/Lazy.scala">
+      <file leaf-file-name="TypeClasses.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lectures/part4implicits/TypeClasses.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="51" column="68" selection-start-line="51" selection-start-column="68" selection-end-line="51" selection-end-column="68" />
+            <state relative-caret-position="1513">
+              <caret line="89" selection-start-line="89" selection-end-line="89" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Intro.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/lectures/part3concurrency/Intro.scala">
+      <file leaf-file-name="ScalaPlayground.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/playground/ScalaPlayground.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="130" lean-forward="true" selection-start-line="130" selection-end-line="130" />
+            <state relative-caret-position="340">
+              <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ThreadCommunication.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/lectures/part3concurrency/ThreadCommunication.scala">
+      <file leaf-file-name="JSONSerialization.scala" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/lectures/part4implicits/JSONSerialization.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="274" column="45" lean-forward="true" selection-start-line="274" selection-start-column="45" selection-end-line="274" selection-end-column="45" />
+            <state relative-caret-position="337">
+              <caret line="91" column="65" lean-forward="true" selection-start-line="91" selection-start-column="65" selection-end-line="91" selection-end-column="65" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Futures.scala" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/lectures/part3concurrency/Futures.scala">
+      <file leaf-file-name="MyTypeClassTemplate.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lectures/part4implicits/MyTypeClassTemplate.scala">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="EqualityPlayground.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/exercises/EqualityPlayground.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="199" column="3" selection-start-line="199" selection-start-column="2" selection-end-line="199" selection-end-column="3" />
-              <folding>
-                <element signature="e#35#92#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="544">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
             </state>
           </provider>
         </entry>
@@ -81,7 +85,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/playground/JavaPlayground.java" />
-        <option value="$PROJECT_DIR$/src/playground/ScalaPlayground.scala" />
         <option value="$PROJECT_DIR$/src/lectures/part1advancescala/Recap.scala" />
         <option value="$PROJECT_DIR$/src/lectures/part1advancescala/DarkSugars.scala" />
         <option value="$PROJECT_DIR$/src/lectures/part2afp/LazyEvaluation.scala" />
@@ -90,6 +93,14 @@
         <option value="$PROJECT_DIR$/src/exercises/Lazy.scala" />
         <option value="$PROJECT_DIR$/src/lectures/part3concurrency/ThreadCommunication.scala" />
         <option value="$PROJECT_DIR$/src/lectures/part3concurrency/Futures.scala" />
+        <option value="$PROJECT_DIR$/src/lectures/part3concurrency/ParallelUtils.scala" />
+        <option value="$PROJECT_DIR$/src/lectures/part4implicits/OrganizingImplicits.scala" />
+        <option value="$PROJECT_DIR$/src/lectures/part4implicits/PimpMyLibrary.scala" />
+        <option value="$PROJECT_DIR$/src/lectures/part4implicits/MyTypeClassTemplate.scala" />
+        <option value="$PROJECT_DIR$/src/lectures/part4implicits/TypeClasses.scala" />
+        <option value="$PROJECT_DIR$/src/exercises/EqualityPlayground.scala" />
+        <option value="$PROJECT_DIR$/src/playground/ScalaPlayground.scala" />
+        <option value="$PROJECT_DIR$/src/lectures/part4implicits/JSONSerialization.scala" />
       </list>
     </option>
   </component>
@@ -114,7 +125,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -147,10 +157,24 @@
               <item name="lectures" type="462c0819:PsiDirectoryNode" />
               <item name="part3concurrency" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="ScalaAdvanceCourse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ScalaAdvanceCourse" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="lectures" type="462c0819:PsiDirectoryNode" />
+              <item name="part4implicits" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ScalaAdvanceCourse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ScalaAdvanceCourse" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="playground" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -175,20 +199,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Futures">
-    <configuration name="Futures" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="lectures.part3concurrency.Futures" />
-      <module name="rock-the-jvm-scala-advanced" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="lectures.part3concurrency.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-    </configuration>
-    <configuration name="LazyApp" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="exercises.LazyApp" />
+  <component name="RunManager" selected="Application.JSONSerialization">
+    <configuration name="EqualityPlayground" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="exercises.EqualityPlayground" />
       <module name="rock-the-jvm-scala-advanced" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
@@ -198,35 +211,46 @@
         </pattern>
       </extension>
     </configuration>
-    <configuration name="Monads" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="lectures.part2afp.Monads" />
+    <configuration name="JSONSerialization" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="lectures.part4implicits.JSONSerialization" />
       <module name="rock-the-jvm-scala-advanced" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="lectures.part2afp.*" />
+          <option name="PATTERN" value="lectures.part4implicits.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
     </configuration>
-    <configuration name="StreamsPlayground" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="exercises.StreamsPlayground" />
+    <configuration name="PimpMyLibrary" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="lectures.part4implicits.PimpMyLibrary" />
       <module name="rock-the-jvm-scala-advanced" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="exercises.*" />
+          <option name="PATTERN" value="lectures.part4implicits.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
     </configuration>
-    <configuration name="ThreadCommunication" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="lectures.part3concurrency.ThreadCommunication" />
+    <configuration name="ScalaPlayground" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="playground.ScalaPlayground" />
       <module name="rock-the-jvm-scala-advanced" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="lectures.part3concurrency.*" />
+          <option name="PATTERN" value="playground.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="TypeClasses" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="lectures.part4implicits.TypeClasses" />
+      <module name="rock-the-jvm-scala-advanced" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lectures.part4implicits.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -273,19 +297,19 @@
       <listeners />
     </configuration>
     <list>
-      <item itemvalue="Application.StreamsPlayground" />
-      <item itemvalue="Application.Monads" />
-      <item itemvalue="Application.LazyApp" />
-      <item itemvalue="Application.ThreadCommunication" />
-      <item itemvalue="Application.Futures" />
+      <item itemvalue="Application.TypeClasses" />
+      <item itemvalue="Application.PimpMyLibrary" />
+      <item itemvalue="Application.EqualityPlayground" />
+      <item itemvalue="Application.ScalaPlayground" />
+      <item itemvalue="Application.JSONSerialization" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Futures" />
-        <item itemvalue="Application.ThreadCommunication" />
-        <item itemvalue="Application.LazyApp" />
-        <item itemvalue="Application.Monads" />
-        <item itemvalue="Application.StreamsPlayground" />
+        <item itemvalue="Application.JSONSerialization" />
+        <item itemvalue="Application.ScalaPlayground" />
+        <item itemvalue="Application.EqualityPlayground" />
+        <item itemvalue="Application.TypeClasses" />
+        <item itemvalue="Application.PimpMyLibrary" />
       </list>
     </recent_temporary>
   </component>
@@ -303,6 +327,12 @@
       <workItem from="1553800819551" duration="4025000" />
       <workItem from="1553850485025" duration="12000" />
       <workItem from="1553888312643" duration="5336000" />
+      <workItem from="1554840759686" duration="634000" />
+      <workItem from="1554915199631" duration="2153000" />
+      <workItem from="1555001481185" duration="599000" />
+      <workItem from="1555054079637" duration="270000" />
+      <workItem from="1555075846351" duration="16850000" />
+      <workItem from="1555533364318" duration="599000" />
     </task>
     <task id="LOCAL-00001" summary="Section 2, Lecture 4 - Recap">
       <created>1553196257476</created>
@@ -388,14 +418,70 @@
       <option name="project" value="LOCAL" />
       <updated>1554656747059</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Section 4, Lecture 30 - Futures: Part 4">
+      <created>1554840809349</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1554840809350</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Section 4, Lecture 31 - Parallel Libraries">
+      <created>1554928127657</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1554928127657</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Section 4, Lecture 34 - Organizing Implicits">
+      <created>1555077341407</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1555077341407</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Section 4, Lecture 35 - Type classes">
+      <created>1555079262198</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1555079262198</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Section 4, Lecture 36 - Type classes, Part 2">
+      <created>1555080317313</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1555080317313</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Section 4, Lecture 37 - Pimp my Library">
+      <created>1555272178488</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1555272178488</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Section 4, Lecture 38 - Type classes, Part 3">
+      <created>1555274270585</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1555274270585</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Section 4, Lecture 39 - JSON Serialization">
+      <created>1555367761633</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1555367761634</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23157000" />
+    <option name="totallyTimeSpent" value="44262000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -416,52 +502,24 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info id="DB Browser" order="2" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32827586" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32965517" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32965517" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32827586" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12044271" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19661458" />
       <window_info anchor="right" id="SciView" order="4" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info id="DB Browser" order="2" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12044271" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32965517" />
-      <window_info id="Job Explorer" order="2" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" x="0" y="0" width="337" height="638" id="Documentation" side_tool="true" weight="0.3294271" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="DB Execution Console" order="7" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info id="Project Explorer" order="2" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="right" id="Database" order="3" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32827586" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32876712" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info id="UI Designer" order="2" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="right" id="SciView" order="4" />
-      <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info id="Designer" order="2" />
+      <window_info anchor="right" x="0" y="0" width="337" height="638" id="Documentation" order="5" side_tool="true" weight="0.3294271" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -483,75 +541,17 @@
     <MESSAGE value="Section 4, Lecture 28 - Futures: Part 2" />
     <MESSAGE value="Section 4, Lecture 29 - Futures: Part 3" />
     <MESSAGE value="Section 4, Lecture 30 - Futures: Part 4" />
-    <option name="LAST_COMMIT_MESSAGE" value="Section 4, Lecture 30 - Futures: Part 4" />
+    <MESSAGE value="Section 4, Lecture 31 - Parallel Libraries" />
+    <MESSAGE value="Section 4, Lecture 34 - Organizing Implicits" />
+    <MESSAGE value="Section 4, Lecture 35 - Type classes" />
+    <MESSAGE value="Section 4, Lecture 36 - Type classes, Part 2" />
+    <MESSAGE value="Section 4, Lecture 37 - Pimp my Library" />
+    <MESSAGE value="Section 4, Lecture 38 - Type classes, Part 3" />
+    <MESSAGE value="Section 4, Lecture 39 - JSON Serialization" />
+    <option name="LAST_COMMIT_MESSAGE" value="Section 4, Lecture 39 - JSON Serialization" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/playground/ScalaPlayground.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lectures/part1advancescala/Recap.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1904">
-          <caret line="112" column="54" selection-start-line="112" selection-start-column="54" selection-end-line="112" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lectures/part1advancescala/DarkSugars.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1530">
-          <caret line="90" column="37" selection-start-line="90" selection-start-column="37" selection-end-line="90" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/playground/JavaPlayground.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/exercises/MySet.scala">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lectures/part2afp/LazyEvaluation.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1207">
-          <caret line="71" column="8" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/exercises/MyStream.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="105" lean-forward="true" selection-start-line="105" selection-end-line="105" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lectures/part2afp/Monads.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="999">
-          <caret line="62" selection-start-line="62" selection-end-line="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/exercises/Lazy.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="51" column="68" lean-forward="true" selection-start-line="51" selection-start-column="68" selection-end-line="51" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/concurrent/ThreadPoolExecutor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-160">
@@ -568,8 +568,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/lectures/part3concurrency/Intro.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="130" lean-forward="true" selection-start-line="130" selection-end-line="130" />
+        <state relative-caret-position="2210">
+          <caret line="130" selection-start-line="130" selection-end-line="130" />
         </state>
       </provider>
     </entry>
@@ -694,13 +694,6 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/playground/ScalaPlayground.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/lectures/part1advancescala/Recap.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1904">
@@ -751,14 +744,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/lectures/part3concurrency/ThreadCommunication.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="274" column="45" lean-forward="true" selection-start-line="274" selection-start-column="45" selection-end-line="274" selection-end-column="45" />
+        <state relative-caret-position="4641">
+          <caret line="274" column="45" selection-start-line="274" selection-start-column="45" selection-end-line="274" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/exercises/Lazy.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
+        <state relative-caret-position="867">
           <caret line="51" column="68" selection-start-line="51" selection-start-column="68" selection-end-line="51" selection-end-column="68" />
         </state>
       </provider>
@@ -784,13 +777,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.8-sources.jar!/scala/concurrent/duration/DurationConversions.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="36" column="6" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.8-sources.jar!/scala/concurrent/impl/Promise.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -807,11 +793,95 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/lectures/part3concurrency/Futures.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="199" column="3" selection-start-line="199" selection-start-column="2" selection-end-line="199" selection-end-column="3" />
-          <folding>
-            <element signature="e#35#92#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1955">
+          <caret line="118" selection-start-line="118" selection-end-line="118" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lectures/part3concurrency/ParallelUtils.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lectures/part4implicits/OrganizingImplicits.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="64" column="28" lean-forward="true" selection-start-line="64" selection-start-column="28" selection-end-line="64" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.8-sources.jar!/scala/App.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="42" column="6" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.8-sources.jar!/scala/runtime/RichInt.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="915">
+          <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.8-sources.jar!/scala/concurrent/duration/Duration.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1070">
+          <caret line="566" column="12" selection-start-line="566" selection-start-column="12" selection-end-line="566" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.8-sources.jar!/scala/concurrent/duration/DurationConversions.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lectures/part4implicits/PimpMyLibrary.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.8-sources.jar!/scala/Predef.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="190" column="48" selection-start-line="190" selection-start-column="48" selection-end-line="190" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lectures/part4implicits/TypeClasses.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1513">
+          <caret line="89" selection-start-line="89" selection-end-line="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lectures/part4implicits/MyTypeClassTemplate.scala">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/exercises/EqualityPlayground.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/playground/ScalaPlayground.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lectures/part4implicits/JSONSerialization.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="91" column="65" lean-forward="true" selection-start-line="91" selection-start-column="65" selection-end-line="91" selection-end-column="65" />
         </state>
       </provider>
     </entry>
