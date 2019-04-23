@@ -84,7 +84,6 @@ object Variance extends App {
   //val evilCat = shop.get(true, new Cat) COULDN'T DO THIS
   class TeraNova extends Dog
   val teraNova = shop.get(true, new TeraNova)
-
   /*
     BIG RULE
     1 - METHOD ARGUMENTS ARE IN CONTRAVARIANT POSITION
