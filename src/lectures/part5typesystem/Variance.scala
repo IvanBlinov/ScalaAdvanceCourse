@@ -89,4 +89,88 @@ object Variance extends App {
     1 - METHOD ARGUMENTS ARE IN CONTRAVARIANT POSITION
     2 - return types are in COVARIANT POSITION
    */
+
+  /*
+    Invariant, covariant, contravariant
+      Parking[T](things List[T]) {
+        park(vehicle: T)
+        impound(vehicles: List[T])
+        checkVehicles(conditions: String): List[T]
+      }
+
+      2. IList[T]
+      3. Parking = monad!
+        -flatMap
+   */
+  class Vehicle
+  class Bike extends Vehicle
+  class Car extends Vehicle
+
+  class CParking[+T](things: List[T]) {
+    def park[B >: T](vehicle: B): CParking[B] = ???
+    def impound[B >: T](vehicles: List[B]): CParking[B] = ???
+    def checkVehicles(conditions: String): List[T] = List()
+
+    def flatMap[S](f: T => CParking[S]): CParking[S] = f()
+  }
+
+  val list = List(new Bike, new Car)
+  val cparking = new CParking[Bike](List(new Bike))
+  cparking.park(new Bike)
+  val carParking = cparking.park(new Car)
+  val vehicleParking = cparking.park(new Vehicle)
+  //val cparking = new CParking[Bike](list)
+
+  class IParking[T](things: List[T]) {
+    def park(vehicle: T): IParking[T] = ???
+    def impound(vehicles: List[T]): IParking[T] = ???
+    def checkVehicles(conditions: String): List[T] = List()
+
+    def flatMap[S](f: T => IParking[S]): IParking[S] = f()
+  }
+
+  val iparking = new IParking[Bike](List(new Bike))
+  iparking.park(new Bike)
+  //iparking.park(new Car)
+  //iparking.park(new Vehicle)
+  //val iparking = new IParking[Bike](List(new Bike, new Car))
+
+  class XParking[-T](things: List[T]) {
+    def park(vehicle: T): XParking[T] = ???
+    def impound(vehicles: List[T]): XParking[T] = ???
+    def checkVehicles[B <: T](conditions: String): List[B] = List()
+
+    def flatMap[R <: T, S](f: R => XParking[S]): XParking[S] = f()
+  }
+
+  val xparking = new XParking[Vehicle](List(new Bike, new Car))
+  xparking.park(new Vehicle)
+  xparking.park(new Car)
+  xparking.park(new Bike)
+
+  /*
+    Rule of thumb
+    - use covariance = COLLECTION OF THINGS
+    - user contravariance = GROUP OF ACTIONS
+   */
+  // ----------------
+  class CParkingCustom[+T](things: IList[T]) {
+    def park[B >: T](vehicle: B): CParkingCustom[B] = ???
+    def impound[B >: T](vehicles: IList[B]): CParkingCustom[B] = ???
+    def checkVehicles[B >: T](conditions: String): IList[B] = new IList
+  }
+
+  class IParkingCustom[T](things: IList[T]) {
+    def park(vehicle: T): IParkingCustom[T] = ???
+    def impound(vehicles: IList[T]): IParkingCustom[T] = ???
+    def checkVehicles(conditions: String): IList[T] = new IList
+  }
+
+  class XParkingCustom[-T](things: IList[T]) {
+    def park(vehicle: T): XParkingCustom[T] = ???
+    def impound[B <: T](vehicles: IList[B]): XParkingCustom[B] = ???
+    def checkVehicles[B <: T](conditions: String): IList[B] = new IList
+  }
+
+  class IList[I]
 }
