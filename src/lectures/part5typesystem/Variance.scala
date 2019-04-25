@@ -111,7 +111,7 @@ object Variance extends App {
     def impound[B >: T](vehicles: List[B]): CParking[B] = ???
     def checkVehicles(conditions: String): List[T] = List()
 
-    def flatMap[S](f: T => CParking[S]): CParking[S] = f()
+    def flatMap[S](f: T => CParking[S]): CParking[S] = ???
   }
 
   val list = List(new Bike, new Car)
@@ -126,7 +126,7 @@ object Variance extends App {
     def impound(vehicles: List[T]): IParking[T] = ???
     def checkVehicles(conditions: String): List[T] = List()
 
-    def flatMap[S](f: T => IParking[S]): IParking[S] = f()
+    def flatMap[S](f: T => IParking[S]): IParking[S] = ???
   }
 
   val iparking = new IParking[Bike](List(new Bike))
@@ -140,7 +140,7 @@ object Variance extends App {
     def impound(vehicles: List[T]): XParking[T] = ???
     def checkVehicles[B <: T](conditions: String): List[B] = List()
 
-    def flatMap[R <: T, S](f: R => XParking[S]): XParking[S] = f()
+    def flatMap[R <: T, S](f: R => XParking[S]): XParking[S] = ???
   }
 
   val xparking = new XParking[Vehicle](List(new Bike, new Car))

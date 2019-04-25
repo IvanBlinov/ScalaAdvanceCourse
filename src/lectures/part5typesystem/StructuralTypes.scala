@@ -81,7 +81,7 @@ object StructuralTypes extends App {
   def f[T](somethingWithAHead: { def head: T}): Unit = println(somethingWithAHead.head)
 
   case object CBNil extends CBL[Nothing] {
-    override def head: Nothing = new Nothing
+    override def head: Nothing = ???
     override def tail: CBL[Nothing] = this
   }
 
